@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "uqhZDZb/DzJ9ZHVv/B8fQiEdy13PLJlzFbLwBUtafJV1PTHu+3KdegUeKDB3CrAixuAEK3/WgDCAJE+y52nRiw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Yan\\Desktop\\Estudos Programação\\imobiliaria\\Imobiliaria\\Imobiliaria\\Imobiliaria.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Yan\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Yan\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Yan\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Yan\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Yan\\.nuget\\packages\\system.data.sqlclient\\4.9.1\\system.data.sqlclient.4.9.1.nupkg.sha512"
+  ],
+  "logs": []
+}

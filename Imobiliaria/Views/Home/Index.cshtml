@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Dash";
+}
+<div class="container mt-4">
+
+    <h2 class="mb-4">🏠 Sistema Imobiliário</h2>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3 h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Bem-vindo</h5>
+                    <p class="card-text">
+                        Sistema de gerenciamento de imóveis.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Imoveis"
+               asp-action="Index"
+               class="text-decoration-none text-reset">
+
+                <div class="card text-white bg-success mb-3 shadow-sm h-100 card-hover">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Imóveis</h5>
+
+                        <p class="card-text">
+                            Gerencie cadastro, edição e exclusão.
+                        </p>
+                    </div>
+
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-white bg-dark mb-3 h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Sistema</h5>
+                    <p class="card-text">
+                        ASP.NET Core MVC + jQuery + Bootstrap
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

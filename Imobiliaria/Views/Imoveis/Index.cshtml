@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Imobiliaria.Models.Imovel>
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<div class="d-flex justify-content-between">
+    <h2>Nossos Imóveis</h2>
+    <a asp-action="Create" class="btn btn-success"> + Novo Imóvel</a>
+</div>
+
+<div class="input-group mt-1" > 
+<input type="text" id="txtBairro" placeholder="Filtrar por bairro..." class="form-control" />
+<button id="btnFiltrar" id="btnFiltrar" class="btn btn-primary" type="button"><i class="bi bi-search"></i> </button>
+</div>
+
+<table class="table" id="tabelaImoveis">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Bairro</th>
+            <th>Valor</th>
+            <th class="text-end"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr id="tr-@item.Id">
+                <td>@item.Titulo</td>
+                <td>@item.Bairro</td>
+                <td>@item.ValorAluguel.ToString("C")</td>
+
+                <td class="text-end">
+                    <a asp-action="Edit"
+                       asp-route-id="@item.Id"
+                       class="btn btn-warning btn-sm me-2"
+                       title="Editar">
+                        <i class="bi bi-pencil-fill"></i>
+                    </a>
+
+                    <button type="button"
+                            onclick="excluir(@item.Id)"
+                            class="btn btn-danger btn-sm"
+                            title="Excluir">
+                        <i class="bi bi-trash-fill"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+       
+        function excluir(id) {
+            console.log("Iniciando exclusão do ID:", id);
+
+            if (confirm("Deseja realmente excluir este imóvel?")) {
+                $.post("/Imoveis/DeleteAjax", { id: id }, function (data) {
+                    if (data.success) {
+                        alert("Excluído com sucesso!");
+                        $("#tr-" + id).remove();
+                    } else {
+                        alert("O servidor retornou erro ao excluir.");
+                    }
+                }).fail(function (xhr) {
+                    console.error("Erro na requisição:", xhr.responseText);
+                    alert("Erro técnico ao excluir. Verifique o console (F12).");
+                });
+            }
+        }
+
+        
+        $(document).ready(function () {
+            console.log("Scripts carregados com sucesso.");
+
+            $("#btnFiltrar").click(function () {
+                var bairroDigitado = $("#txtBairro").val();
+
+                $.getJSON("/Imoveis/FiltrarPorBairro", { bairro: bairroDigitado }, function (data) {
+                    var rows = "";
+                    $("#tabelaImoveis tbody").empty();
+
+                    $.each(data, function (i, item) {
+                       
+                        rows += "<tr id='tr-" + item.id + "'>";
+                        rows += "<td>" + item.titulo + "</td>";
+                        rows += "<td>" + item.bairro + "</td>";
+                        rows += "<td>" + item.valorAluguel.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) + "</td>";
+                        rows += "<td>";
+                        rows += "<a href='/Imoveis/Edit/" + item.id + "' class='btn btn-sm btn-warning'>Editar</a> ";
+                        rows += "<button onclick='excluir(" + item.id + ")' class='btn btn-sm btn-danger'>Excluir</button>";
+                        rows += "</td></tr>";
+                    });
+
+                    $("#tabelaImoveis tbody").append(rows);
+                });
+            });
+        });
+    </script>
+}
