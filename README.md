@@ -40,14 +40,6 @@ O projeto segue uma estrutura em camadas para melhor organização:
 
 ---
 
-## 💻 Demonstração
-
-### Tela principal
-(Adicione aqui prints do sistema)
-
-### Exemplo de filtro AJAX
-O sistema permite filtrar imóveis sem recarregar a página utilizando jQuery + AJAX.
-
 ## ⚙️ Como executar o projeto
 
 - Clonar o repositório: `git clone https://github.com/seu-usuario/imobiliaria-crud.git`
